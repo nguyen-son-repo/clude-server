@@ -1,0 +1,11 @@
+# ⚡ Node dependencies
+node_modules/
+
+# 🏗️ Build output
+dist/
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
