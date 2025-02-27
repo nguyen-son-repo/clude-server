@@ -5,8 +5,19 @@ const router = express.Router();
 
 /* GET /products - List all products */
 router.get("/", async (req: Request, res: Response) => {
+  const { name, price } = req.query;
+
+  const filter:any = {};
+
+  if(name) {
+    filter.name = String(name);
+  }
+  if(price) {
+    filter.price = Number(price);
+  }
+
   try {
-    const products = await Product.find();
+    const products = await Product.find(filter);
     res.json(products);
   } catch (err) {
     console.error(err);
