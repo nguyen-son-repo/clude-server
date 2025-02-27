@@ -6,7 +6,7 @@ dotenv.config(); // Load environment variables
 // MongoDB connection function
 const connectDB = async (): Promise<void> => {
   try {
-    await mongoose.connect("mongodb://admin:secret@localhost:27017/mydatabase" as string, {
+    await mongoose.connect(process.env.MONGO_URI as string, {
       authSource: "admin"
     });
 
